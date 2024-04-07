@@ -5,15 +5,24 @@ import '@fontsource/roboto/700.css';
 
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { 
+import {
   createBrowserRouter,
   RouterProvider
 } from 'react-router-dom';
 
-import Root from './routes/Root';
+import RootRoute from './routes/RootRoute';
+import TasksRoute from './routes/TasksRoute';
+import UsersRoute from './routes/UsersRoute';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Root /> }
+  {
+    path: '/',
+    element: <RootRoute />,
+    children: [
+      { index: true, element: <TasksRoute /> },
+      { path: 'users', element: <UsersRoute /> }
+    ]
+  }
 ]);
 
 function AppRouter() {
