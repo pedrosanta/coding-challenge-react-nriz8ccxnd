@@ -1,6 +1,26 @@
+import {
+  Grid,
+  Typography
+} from "@mui/material";
+
+import AddTaskForm from "../components/AddTaskForm";
+
 function TasksRoute() {
     return (
-        'TASKS ROUTE'
+        <Grid
+          container
+          spacing={5}
+          sx={{
+            marginTop: 0
+          }}
+        >
+          <Grid item sm={6} xs={12}><AddTaskForm /></Grid>
+          <Grid item sm={6} xs={12}>
+            <Typography variant="h6">
+              Tasks
+            </Typography>
+          </Grid>
+        </Grid>
     )
 }
 
