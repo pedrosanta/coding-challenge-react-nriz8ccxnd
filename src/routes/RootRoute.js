@@ -5,6 +5,7 @@ import {
 
 import {
   AppBar,
+  Container,
   Toolbar,
   Typography
 } from "@mui/material";
@@ -24,28 +25,32 @@ function RootRoute() {
   return (
     <>
       <AppBar>
-        <Toolbar>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              marginRight: 4
-            }}
-          >
-            React Coding Challenge
-          </Typography>
+        <Container>
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                marginRight: 4
+              }}
+            >
+              React Coding Challenge
+            </Typography>
 
-          <NavLink to={""} style={{ textDecoration: 'none'}}>
-            <NavItem>Tasks</NavItem>
-          </NavLink>
+            <NavLink to={""} style={{ textDecoration: 'none'}}>
+              <NavItem>Tasks</NavItem>
+            </NavLink>
 
-          <NavLink to={"users"} style={{ textDecoration: 'none'}}>
-            <NavItem>Users</NavItem>
-          </NavLink>
-        </Toolbar>
+            <NavLink to={"users"} style={{ textDecoration: 'none'}}>
+              <NavItem>Users</NavItem>
+            </NavLink>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Toolbar />
-      <Outlet />
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 }
