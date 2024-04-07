@@ -1,9 +1,7 @@
-import {
-  Grid,
-  Typography
-} from "@mui/material";
+import { Grid } from "@mui/material";
 
 import AddTaskForm from "../components/AddTaskForm";
+import TasksList from "../components/TasksList";
 
 function TasksRoute() {
     return (
@@ -14,12 +12,8 @@ function TasksRoute() {
             marginTop: 0
           }}
         >
-          <Grid item sm={6} xs={12}><AddTaskForm /></Grid>
-          <Grid item sm={6} xs={12}>
-            <Typography variant="h6">
-              Tasks
-            </Typography>
-          </Grid>
+          <Grid item md={6} sm={12} xs={12}><AddTaskForm /></Grid>
+          <Grid item md={6} sm={12} xs={12}><TasksList /></Grid>
         </Grid>
     )
 }

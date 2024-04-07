@@ -21,7 +21,7 @@ function AddTaskForm() {
         }}
       />
       <CardContent>
-        <Stack spacing={3}>
+        <Stack spacing={2}>
           <TextField
             id="name"
             label="Name"

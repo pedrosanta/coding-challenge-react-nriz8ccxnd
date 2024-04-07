@@ -13,8 +13,10 @@ const NavItem = styled(Typography)(({theme}) => ({
   color: "#fff",
   textDecoration: 'none',
   marginRight: theme.spacing(3),
+  opacity: '0.5',
   'a.active > &': {
-    textDecoration: 'underline'
+    fontWeight: 'bold',
+    opacity: '1'
   }
 }));
 
