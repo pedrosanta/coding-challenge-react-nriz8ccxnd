@@ -51,7 +51,9 @@ function TaskCard({ index, task }) {
           color="error"
           className="delete-button"
           sx={{
-            visibility: 'hidden',
+            visibility: {
+              md: 'hidden'
+            },
             minWidth: 'initial'
           }}
           onClick={handleDelete}
