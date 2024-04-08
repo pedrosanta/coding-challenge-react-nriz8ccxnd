@@ -15,7 +15,7 @@ function UserListCard({ user }) {
     <Card variant="outlined" sx={{ height: '100%' }}>
       <CardActionArea
         component={RouterLink}
-        to={`users/${user.id}`}
+        to={`/users/${user.id}`}
       >
         <CardContent>
           <Box sx={{
@@ -26,10 +26,12 @@ function UserListCard({ user }) {
             <Box sx={{
               flex: 1
             }}>
-              <Typography sx={{
-                fontWeight: '500',
-                mb: 1
-              }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  mb: 1
+                }}
+              >
                 {user.firstName} {user.maidenName} {user.lastName}
               </Typography>
               <Typography
@@ -40,12 +42,14 @@ function UserListCard({ user }) {
               >
                 @{user.username}
               </Typography>
-              <Link
+              <Typography
                 variant="body2"
-                href={`mailto:${user.email}`}
+                sx={{
+                  fontWeight: '500'
+                }}
               >
                 {user.email}
-              </Link>
+              </Typography>
 
               <Typography variant="body2" sx={{ mt: 2 }}>{user.company.title}</Typography>
               <Typography>{user.company.name}</Typography>

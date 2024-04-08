@@ -16,6 +16,7 @@ import RootRoute from './routes/RootRoute';
 import TasksRoute from './routes/TasksRoute';
 import UsersRoute from './routes/UsersRoute';
 import UsersListRoute, { loader as usersLoader } from './routes/UsersListRoute';
+import UserRoute, { loader as userLoader} from './routes/UserRoute';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
     children: [
       { index: true,   element: <TasksRoute /> },
       { path: 'users', element: <UsersRoute />, children: [
-        { index: true, element: <UsersListRoute />, loader: usersLoader }
+        { index: true, element: <UsersListRoute />, loader: usersLoader },
+        { path: ':id', element: <UserRoute />,      loader: userLoader }
       ]}
     ]
   }
