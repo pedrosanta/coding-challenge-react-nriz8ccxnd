@@ -5,13 +5,15 @@ import { useLoaderData } from "react-router";
 import { Link } from "react-router-dom";
 
 import {
-  Avatar,
+  Grid,
   Pagination,
   PaginationItem,
   Typography
 } from "@mui/material";
 
-const LIST_LIMIT = 10;
+import UserListCard from "../components/UserListCard";
+
+const LIST_LIMIT = 30;
 
 export async function loader({ request }) {
   const url = new URL(request.url);
@@ -25,23 +27,54 @@ export async function loader({ request }) {
 }
 
 function UsersListRoute() {
-  const result = useLoaderData();
+  const { users, total } = useLoaderData();
 
-  const pageCount = useMemo(() => Math.ceil(result.total / LIST_LIMIT), [ result.total ]);
+  const pageCount = useMemo(() => Math.ceil(total / LIST_LIMIT), [ total ]);
 
   return (
     <>
       <Typography variant="h6" sx={{
-        pt: 4
+        mt: 4,
+        mb: 2
       }}>
         Users
       </Typography>
 
-      { result.users.map((user, index) => (
-        <div key={index}><Avatar src={user.image}/> {user.id} {user.firstName} {user.maidenName} {user.lastName}</div>
-      ))}
+      { (users.length === 0) ? (
+        <Typography
+          variant="body2"
+          sx={{
+            color: 'text.secondary'
+          }}
+        >
+          No users found for this query.
+        </Typography>
+      ) : (
+        <Grid
+          container
+          spacing={2}
+        >
+          { users.map((user, index) => (
+            <Grid
+              key={ index }
+              item
+              xs={12}
+              sm={6}
+              md={4}
+            >
+              <UserListCard key={index} user={user} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
 
       <Pagination
+        sx={{
+          m: 3,
+          '& > .MuiPagination-ul': {
+            justifyContent: 'center',
+          }
+        }}
         count={pageCount}
         renderItem={(item) => (
           <PaginationItem
