@@ -63,7 +63,6 @@ function AddTaskForm() {
               <TextFieldElement
                 name="description"
                 label="Task description"
-                required
                 multiline
                 rows={4}
               />
