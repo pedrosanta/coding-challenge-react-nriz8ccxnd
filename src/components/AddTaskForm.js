@@ -1,4 +1,7 @@
-import { useState } from "react";
+import {
+  useContext,
+  useState
+} from "react";
 
 import {
   Alert,
@@ -17,10 +20,14 @@ import {
   useForm
 } from "react-hook-form-mui";
 
+import TasksContext from "../contexts/TasksContext";
+
 function AddTaskForm() {
 
   const [sucessOpen, setSucessOpen] = useState(false);
   const [errorOpen, setErrorOpen] = useState(false);
+
+  const { addTask } = useContext(TasksContext);
 
   const formContext = useForm({
     defaultValues: {
@@ -30,7 +37,7 @@ function AddTaskForm() {
   });
 
   const handleSucess = (data) => {
-    console.log(data);
+    addTask(data);
     setSucessOpen(true);
     formContext.reset();
   };
@@ -52,7 +59,7 @@ function AddTaskForm() {
             titleTypographyProps={{
               variant: 'h6'
             }}
-            sx = {{
+            sx={{
               paddingBottom: 0
             }}
           />

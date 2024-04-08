@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import {
   Box,
   Button,
@@ -8,7 +10,13 @@ import {
 
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function TaskCard({ task }) {
+import TasksContext from "../contexts/TasksContext";
+
+function TaskCard({ index, task }) {
+  const { deleteTask } = useContext(TasksContext);
+
+  const handleDelete = () => deleteTask(index);
+
   return (
     <Card
     variant="outlined"
@@ -46,6 +54,7 @@ function TaskCard({ task }) {
             visibility: 'hidden',
             minWidth: 'initial'
           }}
+          onClick={handleDelete}
         >
           <DeleteIcon />
         </Button>

@@ -1,19 +1,18 @@
+import { useContext } from "react";
+
 import {
   Stack,
   Typography
 } from "@mui/material";
 
+import TasksContext from "../contexts/TasksContext";
+
 import TaskCard from "./TaskCard";
 
-const dummyTasks = [
-  { name: "Task 1", description: "Task 1 description." },
-  { name: "Task 2", description: "Task 2 description." },
-  { name: "Task 3", description: "Task 3 description." }
-]
-
-const tasks = dummyTasks;
-
 function TasksList() {
+
+  const { tasks } = useContext(TasksContext);
+
   return (
     <>
       <Typography variant="h6">
@@ -25,7 +24,7 @@ function TasksList() {
           marginTop: 2
         }}
       >
-      { tasks.map( (task, index) => <TaskCard key={index} task={task} />) }
+      { tasks.map( (task, index) => <TaskCard key={index} index={index} task={task} />) }
       { tasks.length === 0 &&
         <Typography
           variant="body2"

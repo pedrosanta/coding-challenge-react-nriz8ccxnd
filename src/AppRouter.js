@@ -10,6 +10,8 @@ import {
   RouterProvider
 } from 'react-router-dom';
 
+import TasksProvider from './contexts/TasksProvider';
+
 import RootRoute from './routes/RootRoute';
 import TasksRoute from './routes/TasksRoute';
 import UsersRoute from './routes/UsersRoute';
@@ -28,7 +30,10 @@ const router = createBrowserRouter([
 function AppRouter() {
   return (
     <CssBaseline>
-      <RouterProvider router={router} />
+      <TasksProvider>
+        <RouterProvider router={router} />
+      </TasksProvider>
+
     </CssBaseline>
   );
 }
