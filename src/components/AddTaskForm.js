@@ -54,25 +54,16 @@ function AddTaskForm() {
         onError={handleError}
       >
         <Card variant="outlined">
-          <CardHeader
-            title="Add task"
-            titleTypographyProps={{
-              variant: 'h6'
-            }}
-            sx={{
-              paddingBottom: 0
-            }}
-          />
           <CardContent>
             <Stack spacing={2}>
               <TextFieldElement
                 name="name"
-                label="Name"
+                label="Task name"
                 required
               />
               <TextFieldElement
                 name="description"
-                label="Description"
+                label="Task description"
                 required
                 multiline
                 rows={4}
@@ -85,7 +76,7 @@ function AddTaskForm() {
             justifyContent: 'right'
           }}>
             <Button onClick={formContext.reset}>Clear</Button>
-            <Button type="submit" variant="contained">Submit</Button>
+            <Button type="submit" variant="contained">Add task</Button>
           </CardActions>
         </Card>
       </FormContainer>
@@ -104,7 +95,7 @@ function AddTaskForm() {
           severity="error"
           sx={{ width: '100%' }}
         >
-          Oops, something went wrong. Please check if these were the values you wanted to add.
+          Oops, something went wrong. Please check the values you wanted to add.
         </Alert>
       </Snackbar>
     </>

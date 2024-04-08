@@ -33,7 +33,6 @@ function AppRouter() {
       <TasksProvider>
         <RouterProvider router={router} />
       </TasksProvider>
-
     </CssBaseline>
   );
 }
