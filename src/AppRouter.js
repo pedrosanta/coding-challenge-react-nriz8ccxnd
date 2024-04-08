@@ -15,14 +15,17 @@ import TasksProvider from './contexts/TasksProvider';
 import RootRoute from './routes/RootRoute';
 import TasksRoute from './routes/TasksRoute';
 import UsersRoute from './routes/UsersRoute';
+import UsersListRoute, { loader as usersLoader } from './routes/UsersListRoute';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootRoute />,
     children: [
-      { index: true, element: <TasksRoute /> },
-      { path: 'users', element: <UsersRoute /> }
+      { index: true,   element: <TasksRoute /> },
+      { path: 'users', element: <UsersRoute />, children: [
+        { index: true, element: <UsersListRoute />, loader: usersLoader }
+      ]}
     ]
   }
 ]);

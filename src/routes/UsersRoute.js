@@ -1,7 +1,11 @@
+import { Outlet } from "react-router";
+
 function UsersRoute() {
-    return (
-        'USERS ROUTE'
-    )
+  return (
+    <>
+      <Outlet />
+    </>
+  )
 }
 
 export default UsersRoute;
